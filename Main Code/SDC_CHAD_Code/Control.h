@@ -10,10 +10,13 @@
 #endif
 #include <SPI.h>
 
+//Object creation for the USB and Xbox Reciever
 USB Usb;
 XBOXRECV Xbox(&Usb);
 
+//Sets up all the stuff needed for the xbox controller reciever and USB shield
 void XboxControllerSetup() {
+  
   Serial.begin(9600);
 #if !defined(__MIPSEL__)
   while (!Serial); // Wait for serial port to connect - used on Leonardo, Teensy and other boards with built-in USB CDC serial connection
@@ -23,8 +26,10 @@ void XboxControllerSetup() {
     while (1); //halt
   }
   Serial.print(F("\r\nXbox Wireless Receiver Library Started"));
+  
 }
 
+//This function allows for the testing of the controller inputs in order to debug any issues.
 void ControlTest() {
   Usb.Task();
   if (Xbox.XboxReceiverConnected) {

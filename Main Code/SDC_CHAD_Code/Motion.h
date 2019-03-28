@@ -27,11 +27,6 @@
 #define CWMotor4 28
 #define CCWMotor4 29
 
-//Variables
-const int AnalogMaximum = 1000; //Maximum axis value for analog sticks
-
-
-
 //Movement Functions 
 
 void MotionSetup(){

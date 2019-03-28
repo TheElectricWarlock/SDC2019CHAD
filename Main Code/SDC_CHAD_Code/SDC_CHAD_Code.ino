@@ -11,14 +11,16 @@ int DebugFlag = 1;
 #include "Power_Management.h" //Code used for the battery and power management code
 #include "ControlSystems.h"   //All code which performs all the controlling for the bot motion and other features
 void setup(){
-  // put your setup code here, to run once:
+  
   Serial.begin(9600);
   XboxControllerSetup();
   MotionSetup();
+  
 }
 
 void loop(){
-  // put your main code here, to run repeatedly:
-  //ControlTest();
+  
+  //ControlTest(); //Enable if you need to test the controller's input, but disable everything else.
+  
   ControlSystem();
 }
