@@ -77,10 +77,10 @@ void ForwardsMotion(int Speed){
   digitalWrite(CCWMotor4, LOW); 
 
   //Sets speeds for all of the motors 
-  analogWrite(PWMMotor1,map(Speed, 0, AnalogMaximum, 0, 255));
-  analogWrite(PWMMotor2,map(Speed, 0, AnalogMaximum, 0, 255));
-  analogWrite(PWMMotor3,map(Speed, 0, AnalogMaximum, 0, 255));
-  analogWrite(PWMMotor4,map(Speed, 0, AnalogMaximum, 0, 255));
+  analogWrite(PWMMotor1,Speed);
+  analogWrite(PWMMotor2,Speed);
+  analogWrite(PWMMotor3,Speed);
+  analogWrite(PWMMotor4,Speed);
 }
 
 //Backwards Motion (All wheels move backwards)
@@ -102,10 +102,10 @@ void BackwardsMotion(int Speed){
   digitalWrite(CCWMotor4, HIGH); 
 
   //Sets speeds for all of the motors
-  analogWrite(PWMMotor1,map(Speed, 0, AnalogMaximum, 0, 255));
-  analogWrite(PWMMotor2,map(Speed, 0, AnalogMaximum, 0, 255));
-  analogWrite(PWMMotor3,map(Speed, 0, AnalogMaximum, 0, 255));
-  analogWrite(PWMMotor4,map(Speed, 0, AnalogMaximum, 0, 255));
+  analogWrite(PWMMotor1,Speed);
+  analogWrite(PWMMotor2,Speed);
+  analogWrite(PWMMotor3,Speed);
+  analogWrite(PWMMotor4,Speed);
 }
 
 
@@ -128,10 +128,10 @@ void StLeftMotion(int Speed){
   digitalWrite(CCWMotor4, HIGH); 
 
   //Sets speeds for all of the motors
-  analogWrite(PWMMotor1,map(Speed, 0, AnalogMaximum, 0, 255));
-  analogWrite(PWMMotor2,map(Speed, 0, AnalogMaximum, 0, 255));
-  analogWrite(PWMMotor3,map(Speed, 0, AnalogMaximum, 0, 255));
-  analogWrite(PWMMotor4,map(Speed, 0, AnalogMaximum, 0, 255));
+  analogWrite(PWMMotor1,Speed);
+  analogWrite(PWMMotor2,Speed);
+  analogWrite(PWMMotor3,Speed);
+  analogWrite(PWMMotor4,Speed);
 }
 
 //Right Straffle 
@@ -153,10 +153,10 @@ void StRightMotion(int Speed){
   digitalWrite(CCWMotor4, LOW); 
 
   //Sets speeds for all of the motors
-  analogWrite(PWMMotor1,map(Speed, 0, AnalogMaximum, 0, 255));
-  analogWrite(PWMMotor2,map(Speed, 0, AnalogMaximum, 0, 255));
-  analogWrite(PWMMotor3,map(Speed, 0, AnalogMaximum, 0, 255));
-  analogWrite(PWMMotor4,map(Speed, 0, AnalogMaximum, 0, 255));
+  analogWrite(PWMMotor1,Speed);
+  analogWrite(PWMMotor2,Speed);
+  analogWrite(PWMMotor3,Speed);
+  analogWrite(PWMMotor4,Speed);
 }
 
 //Diagonal Front Left
@@ -179,8 +179,8 @@ void DiagonalFLMotion(int Speed){
 
   //Sets speeds for all of the motors
   analogWrite(PWMMotor1,0);
-  analogWrite(PWMMotor2,map(Speed, 0, AnalogMaximum, 0, 255));
-  analogWrite(PWMMotor3,map(Speed, 0, AnalogMaximum, 0, 255));
+  analogWrite(PWMMotor2,Speed);
+  analogWrite(PWMMotor3,Speed);
   analogWrite(PWMMotor4,0);
 }
 
@@ -203,10 +203,10 @@ void DiagonalFRMotion(int Speed){
   digitalWrite(CCWMotor4, LOW); 
 
   //Sets speeds for all of the motors
-  analogWrite(PWMMotor1,map(Speed, 0, AnalogMaximum, 0, 255));
+  analogWrite(PWMMotor1,Speed);
   analogWrite(PWMMotor2,0);
   analogWrite(PWMMotor3,0);
-  analogWrite(PWMMotor4,map(Speed, 0, AnalogMaximum, 0, 255));
+  analogWrite(PWMMotor4,Speed);
 }
 
 //Diagonal Back Left
@@ -228,10 +228,10 @@ void DiagonalBLMotion(int Speed){
   digitalWrite(CCWMotor4, HIGH); 
 
   //Sets speeds for all of the motors
-  analogWrite(PWMMotor1,map(Speed, 0, AnalogMaximum, 0, 255));
+  analogWrite(PWMMotor1,Speed);
   analogWrite(PWMMotor2,0);
   analogWrite(PWMMotor3,0);
-  analogWrite(PWMMotor4,map(Speed, 0, AnalogMaximum, 0, 255)); 
+  analogWrite(PWMMotor4,Speed); 
 }
 
 //Diagonal Back Right 
@@ -254,8 +254,8 @@ void DiagonalBRMotion(int Speed){
 
   //Sets speeds for all of the motors
   analogWrite(PWMMotor1,0);
-  analogWrite(PWMMotor2,map(Speed, 0, AnalogMaximum, 0, 255));
-  analogWrite(PWMMotor3,map(Speed, 0, AnalogMaximum, 0, 255));
+  analogWrite(PWMMotor2,Speed);
+  analogWrite(PWMMotor3,Speed);
   analogWrite(PWMMotor4,0); 
 }
 
@@ -278,10 +278,10 @@ void RotationCWMotion(int Speed){
   digitalWrite(CCWMotor4, HIGH); 
 
   //Sets speeds for all of the motors
-  analogWrite(PWMMotor1,map(Speed, 0, AnalogMaximum, 0, 255));
-  analogWrite(PWMMotor2,map(Speed, 0, AnalogMaximum, 0, 255));
-  analogWrite(PWMMotor3,map(Speed, 0, AnalogMaximum, 0, 255));
-  analogWrite(PWMMotor4,map(Speed, 0, AnalogMaximum, 0, 255));
+  analogWrite(PWMMotor1,Speed);
+  analogWrite(PWMMotor2,Speed);
+  analogWrite(PWMMotor3,Speed);
+  analogWrite(PWMMotor4,Speed);
 }
 
 //Rotation CCW 
@@ -303,14 +303,14 @@ void RotationCCWMotion(int Speed){
   digitalWrite(CCWMotor4, LOW); 
 
   //Sets speeds for all of the motors
-  analogWrite(PWMMotor1,map(Speed, 0, AnalogMaximum, 0, 255));
-  analogWrite(PWMMotor2,map(Speed, 0, AnalogMaximum, 0, 255));
-  analogWrite(PWMMotor3,map(Speed, 0, AnalogMaximum, 0, 255));
-  analogWrite(PWMMotor4,map(Speed, 0, AnalogMaximum, 0, 255));
+  analogWrite(PWMMotor1,Speed);
+  analogWrite(PWMMotor2,Speed);
+  analogWrite(PWMMotor3,Speed);
+  analogWrite(PWMMotor4,Speed);
 }
 
 //Wheels Stop
-void StopMotion(int speed){
+void StopMotion(){
   //Sets the first motor to go forward
   digitalWrite(CWMotor1, LOW);
   digitalWrite(CCWMotor1, LOW); 
