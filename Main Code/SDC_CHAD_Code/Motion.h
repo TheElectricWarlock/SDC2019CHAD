@@ -6,26 +6,22 @@
  */
 
 //PWM signals for the motors, controls their speed
-#define PWMMotor1 4
-#define PWMMotor2 5
-#define PWMMotor3 6
-#define PWMMotor4 7
+#define PWMMotor1 5
+#define PWMMotor2 6
+#define PWMMotor3 7
+#define PWMMotor4 8
 
 //Direction pins for motor 1
-#define CWMotor1 22
-#define CCWMotor1 23
+#define DirectionMotor1 22
 
 //Direction pins for motor 2
-#define CWMotor2 24
-#define CCWMotor2 25
+#define DirectionMotor2 23
 
 //Direction pins for motor 3
-#define CWMotor3 26
-#define CCWMotor3 27
+#define DirectionMotor3 24
 
 //Direction pins for motor 4
-#define CWMotor4 28
-#define CCWMotor4 29
+#define DirectionMotor4 25
 
 //Movement Functions 
 
@@ -38,17 +34,10 @@ void MotionSetup(){
   pinMode(PWMMotor4, OUTPUT);
 
   //Setup for direction pins
-  pinMode(CWMotor1, OUTPUT);
-  pinMode(CCWMotor1, OUTPUT);
-
-  pinMode(CWMotor2, OUTPUT);
-  pinMode(CCWMotor2, OUTPUT);
-  
-  pinMode(CWMotor3, OUTPUT);
-  pinMode(CCWMotor3, OUTPUT);
-  
-  pinMode(CWMotor4, OUTPUT);
-  pinMode(CCWMotor4, OUTPUT);
+  pinMode(DirectionMotor1, OUTPUT);
+  pinMode(DirectionMotor2, OUTPUT);
+  pinMode(DirectionMotor3, OUTPUT);
+  pinMode(DirectionMotor4, OUTPUT);
   
 }
 
@@ -56,20 +45,16 @@ void MotionSetup(){
 void ForwardsMotion(int Speed){
 
   //Sets the first motor to go forward
-  digitalWrite(CWMotor1, HIGH);
-  digitalWrite(CCWMotor1, LOW); 
+  digitalWrite(DirectionMotor1, HIGH); 
 
   //Sets the second motor to go forward
-  digitalWrite(CWMotor2, HIGH);
-  digitalWrite(CCWMotor2, LOW); 
+  digitalWrite(DirectionMotor2, HIGH);
 
   //Sets the third motor to go forward
-  digitalWrite(CWMotor3, HIGH);
-  digitalWrite(CCWMotor3, LOW); 
+  digitalWrite(DirectionMotor3, HIGH);
 
   //Sets the third motor to go forward  
-  digitalWrite(CWMotor4, HIGH);
-  digitalWrite(CCWMotor4, LOW); 
+  digitalWrite(DirectionMotor4, HIGH);
 
   //Sets speeds for all of the motors 
   analogWrite(PWMMotor1,Speed);
@@ -81,20 +66,16 @@ void ForwardsMotion(int Speed){
 //Backwards Motion (All wheels move backwards)
 void BackwardsMotion(int Speed){
    //Sets the first motor to go backwards
-  digitalWrite(CWMotor1, LOW);
-  digitalWrite(CCWMotor1, HIGH); 
+  digitalWrite(DirectionMotor1, LOW);
 
   //Sets the second motor to go backwards
-  digitalWrite(CWMotor2, LOW);
-  digitalWrite(CCWMotor2, HIGH); 
+  digitalWrite(DirectionMotor2, LOW);
 
   //Sets the third motor to go backwards
-  digitalWrite(CWMotor3, LOW);
-  digitalWrite(CCWMotor3, HIGH); 
+  digitalWrite(DirectionMotor3, LOW);
 
   //Sets the third motor to go backwards
-  digitalWrite(CWMotor4, LOW);
-  digitalWrite(CCWMotor4, HIGH); 
+  digitalWrite(DirectionMotor4, LOW);
 
   //Sets speeds for all of the motors
   analogWrite(PWMMotor1,Speed);
@@ -107,20 +88,16 @@ void BackwardsMotion(int Speed){
 //Left Straffle 
 void StLeftMotion(int Speed){
  //Sets the first motor to go backwards
-  digitalWrite(CWMotor1, LOW);
-  digitalWrite(CCWMotor1, HIGH); 
+  digitalWrite(DirectionMotor1, LOW);
 
   //Sets the second motor to go forwards
-  digitalWrite(CWMotor2, HIGH);
-  digitalWrite(CCWMotor2, LOW); 
-
+  digitalWrite(DirectionMotor2, HIGH);
+  
   //Sets the third motor to go forwards
-  digitalWrite(CWMotor3, HIGH);
-  digitalWrite(CCWMotor3, LOW); 
-
+  digitalWrite(DirectionMotor3, HIGH);
+  
   //Sets the third motor to go backwards 
-  digitalWrite(CWMotor4, LOW);
-  digitalWrite(CCWMotor4, HIGH); 
+  digitalWrite(DirectionMotor4, LOW);
 
   //Sets speeds for all of the motors
   analogWrite(PWMMotor1,Speed);
@@ -132,20 +109,16 @@ void StLeftMotion(int Speed){
 //Right Straffle 
 void StRightMotion(int Speed){
   //Sets the first motor to go forwards
-  digitalWrite(CWMotor1, HIGH);
-  digitalWrite(CCWMotor1, LOW); 
-
+  digitalWrite(DirectionMotor1, HIGH);
+  
   //Sets the second motor to go backwards
-  digitalWrite(CWMotor2, LOW);
-  digitalWrite(CCWMotor2, HIGH); 
+  digitalWrite(DirectionMotor2, LOW);
 
   //Sets the third motor to go backwards
-  digitalWrite(CWMotor3, LOW);
-  digitalWrite(CCWMotor3, HIGH); 
+  digitalWrite(DirectionMotor3, LOW);
 
   //Sets the third motor to go forward  
-  digitalWrite(CWMotor4, HIGH);
-  digitalWrite(CCWMotor4, LOW); 
+  digitalWrite(DirectionMotor4, HIGH);
 
   //Sets speeds for all of the motors
   analogWrite(PWMMotor1,Speed);
@@ -157,21 +130,17 @@ void StRightMotion(int Speed){
 //Diagonal Front Left
 void DiagonalFLMotion(int Speed){
   //Sets the first motor disabled
-  digitalWrite(CWMotor1, LOW);
-  digitalWrite(CCWMotor1, LOW); 
+  digitalWrite(DirectionMotor1, LOW);
 
   //Sets the second motor to go forward
-  digitalWrite(CWMotor2, HIGH);
-  digitalWrite(CCWMotor2, LOW); 
+  digitalWrite(DirectionMotor2, HIGH);
 
   //Sets the third motor to go forward
-  digitalWrite(CWMotor3, HIGH);
-  digitalWrite(CCWMotor3, LOW); 
-
+  digitalWrite(DirectionMotor3, HIGH);
+  
   //Sets the third motor disabled  
-  digitalWrite(CWMotor4, LOW);
-  digitalWrite(CCWMotor4, LOW); 
-
+  digitalWrite(DirectionMotor4, LOW);
+ 
   //Sets speeds for all of the motors
   analogWrite(PWMMotor1,0);
   analogWrite(PWMMotor2,Speed);
@@ -182,21 +151,17 @@ void DiagonalFLMotion(int Speed){
 //Diagonal Front Right
 void DiagonalFRMotion(int Speed){
   //Sets the first motor to go forward
-  digitalWrite(CWMotor1, HIGH);
-  digitalWrite(CCWMotor1, LOW); 
+  digitalWrite(DirectionMotor1, HIGH);
 
   //Sets the second motor to disabled
-  digitalWrite(CWMotor2, LOW);
-  digitalWrite(CCWMotor2, LOW); 
+  digitalWrite(DirectionMotor2, LOW);
 
   //Sets the third motor to disabled
-  digitalWrite(CWMotor3, LOW);
-  digitalWrite(CCWMotor3, LOW); 
-
+  digitalWrite(DirectionMotor3, LOW);
+  
   //Sets the third motor to go forward  
-  digitalWrite(CWMotor4, HIGH);
-  digitalWrite(CCWMotor4, LOW); 
-
+  digitalWrite(DirectionMotor4, HIGH);
+  
   //Sets speeds for all of the motors
   analogWrite(PWMMotor1,Speed);
   analogWrite(PWMMotor2,0);
@@ -207,20 +172,16 @@ void DiagonalFRMotion(int Speed){
 //Diagonal Back Left
 void DiagonalBLMotion(int Speed){
  //Sets the first motor to go backwards
-  digitalWrite(CWMotor1, LOW);
-  digitalWrite(CCWMotor1, HIGH); 
+  digitalWrite(DirectionMotor1, LOW);
 
   //Sets the second motor to diabled
-  digitalWrite(CWMotor2, LOW);
-  digitalWrite(CCWMotor2, LOW); 
+  digitalWrite(DirectionMotor2, LOW);
 
   //Sets the third motor to disabled
-  digitalWrite(CWMotor3, LOW);
-  digitalWrite(CCWMotor3, LOW); 
-
+  digitalWrite(DirectionMotor3, LOW);
+  
   //Sets the third motor to go backwards
-  digitalWrite(CWMotor4, LOW);
-  digitalWrite(CCWMotor4, HIGH); 
+  digitalWrite(DirectionMotor4, LOW);
 
   //Sets speeds for all of the motors
   analogWrite(PWMMotor1,Speed);
@@ -232,20 +193,16 @@ void DiagonalBLMotion(int Speed){
 //Diagonal Back Right 
 void DiagonalBRMotion(int Speed){
  //Sets the first motor to disabled
-  digitalWrite(CWMotor1, LOW);
-  digitalWrite(CCWMotor1, LOW); 
+  digitalWrite(DirectionMotor1, LOW);
 
   //Sets the second motor to go backwards
-  digitalWrite(CWMotor2, LOW);
-  digitalWrite(CCWMotor2, HIGH); 
+  digitalWrite(DirectionMotor2, LOW);
 
   //Sets the third motor to go backwards
-  digitalWrite(CWMotor3, LOW);
-  digitalWrite(CCWMotor3, HIGH); 
+  digitalWrite(DirectionMotor3, LOW);
 
   //Sets the third motor to disabled 
-  digitalWrite(CWMotor4, LOW);
-  digitalWrite(CCWMotor4, LOW); 
+  digitalWrite(DirectionMotor4, LOW);
 
   //Sets speeds for all of the motors
   analogWrite(PWMMotor1,0);
@@ -257,20 +214,16 @@ void DiagonalBRMotion(int Speed){
 //Rotation CW
 void RotationCWMotion(int Speed){
   //Sets the first motor to go forward
-  digitalWrite(CWMotor1, HIGH);
-  digitalWrite(CCWMotor1, LOW); 
+  digitalWrite(DirectionMotor1, HIGH);
 
   //Sets the second motor to go backwards
-  digitalWrite(CWMotor2, LOW);
-  digitalWrite(CCWMotor2, HIGH); 
+  digitalWrite(DirectionMotor2, LOW);
 
   //Sets the third motor to go forward
-  digitalWrite(CWMotor3, HIGH);
-  digitalWrite(CCWMotor3, LOW); 
+  digitalWrite(DirectionMotor3, HIGH);
 
   //Sets the third motor to go backwards
-  digitalWrite(CWMotor4, LOW);
-  digitalWrite(CCWMotor4, HIGH); 
+  digitalWrite(DirectionMotor4, LOW);
 
   //Sets speeds for all of the motors
   analogWrite(PWMMotor1,Speed);
@@ -282,20 +235,16 @@ void RotationCWMotion(int Speed){
 //Rotation CCW 
 void RotationCCWMotion(int Speed){
   //Sets the first motor to go backwards
-  digitalWrite(CWMotor1, LOW);
-  digitalWrite(CCWMotor1, HIGH); 
+  digitalWrite(DirectionMotor1, LOW);
 
   //Sets the second motor to go forward
-  digitalWrite(CWMotor2, HIGH);
-  digitalWrite(CCWMotor2, LOW); 
+  digitalWrite(DirectionMotor2, HIGH);
 
   //Sets the third motor to go backwards
-  digitalWrite(CWMotor3, LOW);
-  digitalWrite(CCWMotor3, HIGH); 
+  digitalWrite(DirectionMotor3, LOW);
 
   //Sets the third motor to go forward  
-  digitalWrite(CWMotor4, HIGH);
-  digitalWrite(CCWMotor4, LOW); 
+  digitalWrite(DirectionMotor4, HIGH);
 
   //Sets speeds for all of the motors
   analogWrite(PWMMotor1,Speed);
@@ -307,20 +256,16 @@ void RotationCCWMotion(int Speed){
 //Wheels Stop
 void StopMotion(){
   //Sets the first motor to go forward
-  digitalWrite(CWMotor1, LOW);
-  digitalWrite(CCWMotor1, LOW); 
+  digitalWrite(DirectionMotor1, LOW);
 
   //Sets the second motor to go forward
-  digitalWrite(CWMotor2, LOW);
-  digitalWrite(CCWMotor2, LOW); 
+  digitalWrite(DirectionMotor2, LOW);
 
   //Sets the third motor to go forward
-  digitalWrite(CWMotor3, LOW);
-  digitalWrite(CCWMotor3, LOW); 
+  digitalWrite(DirectionMotor3, LOW);
 
   //Sets the third motor to go forward  
-  digitalWrite(CWMotor4, LOW);
-  digitalWrite(CCWMotor4, LOW); 
+  digitalWrite(DirectionMotor4, LOW);
 
   //Sets speeds for all of the motors
   analogWrite(PWMMotor1,0);
