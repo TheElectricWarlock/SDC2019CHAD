@@ -1,10 +1,9 @@
 /*Code for the xbox controller, gathers the values from the controller, as well as checking if it is connected. 
  * Based on the wireless reciever for Xbox 360 code. 
  */
- 
-#include <XBOXRECV.h>
 
-// Satisfy the IDE, which needs to see the include statment in the ino too.
+//Libraries and files required for the xbox reciever to function
+#include <XBOXRECV.h>
 #ifdef dobogusinclude
 #include <spi4teensy3.h>
 #endif
@@ -13,6 +12,11 @@
 //Object creation for the USB and Xbox Reciever
 USB Usb;
 XBOXRECV Xbox(&Usb);
+
+//Variables
+unsigned long VibrationStart;  //Stores the value at which vibration began
+unsigned long VibrationLenght; //Stores the amount of time the controller should vibrate for
+bool VibrationFlag = 0;        // Flag to keep track of vibration
 
 //Sets up all the stuff needed for the xbox controller reciever and USB shield
 void XboxControllerSetup() {
@@ -29,6 +33,40 @@ void XboxControllerSetup() {
   
 }
 
+void ControllerVibrationStart(unsigned long VibrationTime){
+
+  VibrationStart = millis();
+  VibrationLenght = VibrationTime; 
+
+  if(VibrationFlag == 0){
+    //Turns on vibration
+    Xbox.setRumbleOn(0,100,0); //Sets big weight to a speed of zero, sets small weight to a speed of 200, sets controller to vibrate which is zero for 1st controller
+
+    //Sets flag that allows the system to know that vibration is happening
+    VibrationFlag = 1;
+
+    if(DebugFlag == 1){
+    Serial.println("Vibration enabled");
+    }
+   }
+  
+}
+
+void ControllerVibrationStop(){
+  if((millis() - VibrationStart >= VibrationLenght) && VibrationFlag == 1){
+    
+    //turns of vibration
+    Xbox.setRumbleOff(0);
+    
+    //Sets vibration flag back to zero
+    VibrationFlag = 0;
+
+    if(DebugFlag == 1){
+    Serial.println("Vibration Disabled");
+    }
+  }
+  
+}
 //This function allows for the testing of the controller inputs in order to debug any issues.
 void ControlTest() {
   Usb.Task();
