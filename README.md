@@ -9,12 +9,16 @@ This is the code that will be used for the C.H.A.D robot for SDC 2019
 * Constant Speed Stepping System
 * Battery Voltage Regulation
 * Vibration Warnings
-
-## Features to be Added:
 * Gate opening and closing
 
+
+## Features to be Added:
+* None, Competition has been completed
+
 ## What works: 
-* tbd
+* Most things work fairly well
 
 ## Needs Fixing:
-* tbd
+* Battery voltage reading needs testing
+* Issues with the Left Joystick and Triggers while moving in variable speed 
+
